@@ -1,0 +1,27 @@
+import pandas as pd
+data=pd.read_csv('Cancer_data.csv')
+data
+X=pd.DataFrame(dataset.iloc[:,:-1])
+y=pd.DataFrame(dataset.iloc[:,-1])
+X
+y
+from sklearn.model_selection import train_test_split
+X_train,X_test,y_trian,y_test=train_test_split(X,y,teest_size=0.20)
+from sklearn.ensemble import RandomForestClassifier
+class=RandomForestClassifier(n_estimators=20,criterion='gini,random_state=1,max_depth=3)
+class.fit(X_trian,y_train)
+y_pred=class.predict(X_test)
+from sklearn.metrics import classification_report,confusion_matrix,accuracy_score
+print(confusion_matrix(y_test,y_pred))
+print(classification_report(y_tesst,y_pred))
+import pandas as pd
+feature_imp=pd.Seriess(classifier.feature_importances_,index=X.coluims).sort_values(ascending=False)
+feature_imp
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+sns.barplot(x=feature_imp,y=feature_imp.index)
+plt.xlabel('Feature Importance Score')
+plt.ylabel('Features')
+plt.title('visualizing Important Features')
+plt.show()
