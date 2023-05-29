@@ -1,0 +1,23 @@
+import pandas as pd
+data=pd.read_csv("D:/21761A4232/marks.csv")
+data
+x=data[['Attendance']]
+y=data['Marks']
+
+from sklearn.model_selection import train_test_split
+xtrain,xtest,ytrain,ytest=train_test_split(x,y,test_size=0.2)
+print(xtrain.shape)
+print(xtest.shape)
+print(ytrain.shape)
+print(ytest.shape)
+from sklearn.tree import DecisionTreeRegressor
+model = DecisionTreeRegressor()
+model.fit(xtrain,ytrain)
+pred=model.predict(xtest)
+pred
+from sklearn.tree import export_graphviz
+import matplotlib.pyplot as plt
+from sklearn import tree
+#fig, axes = plt.subplots(nrows = 1,ncols = 1,figsize = (4,4), dpi=300)
+tree.plot_tree(model,feature_names =['Attendance'],class_names=['Marks'],filled=True) 
+plt.show('imagename.png')
